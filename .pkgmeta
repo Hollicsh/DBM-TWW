@@ -1,0 +1,5 @@
+package-as: DBM-Raids-WarWithin
+
+move-folders:
+  DBM-Raids-WarWithin/DBM-KhazAlhar: DBM-KhazAlhar
+  DBM-Raids-WarWithin/DBM-Raids-WarWithin: DBM-Raids-WarWithin
