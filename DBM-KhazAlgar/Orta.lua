@@ -2,6 +2,7 @@ local mod	= DBM:NewMod(2625, "DBM-KhazAlgar", nil, 1278)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
+mod:DisableHardcodedOptions()
 mod:SetCreatureID(221067)
 mod:SetEncounterID(2984)
 --mod:SetReCombatTime(30)

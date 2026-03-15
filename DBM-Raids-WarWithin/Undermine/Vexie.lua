@@ -2,6 +2,7 @@ local mod	= DBM:NewMod(2639, "DBM-Raids-WarWithin", 2, 1296)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
+mod:DisableHardcodedOptions()
 mod:SetCreatureID(225821, 225822)--Gear Grinder, 225822 Vexie
 mod:SetEncounterID(3009)
 mod:SetHotfixNoticeRev(20250323000000)

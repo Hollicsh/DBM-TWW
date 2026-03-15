@@ -2,6 +2,7 @@ local mod	= DBM:NewMod(2683, "DBM-KhazAlgar", nil, 1278)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
+mod:DisableHardcodedOptions()
 mod:SetCreatureID(231821)--Bombs use https://www.wowhead.com/ptr-2/npc=236733
 mod:SetEncounterID(3128)
 --mod:SetReCombatTime(30)

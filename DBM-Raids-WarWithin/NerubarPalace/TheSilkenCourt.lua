@@ -2,6 +2,7 @@ local mod	= DBM:NewMod(2608, "DBM-Raids-WarWithin", 3, 1273)
 local L		= mod:GetLocalizedStrings()
 
 mod:SetRevision("@file-date-integer@")
+mod:DisableHardcodedOptions()
 mod:SetCreatureID(217489, 217491)--Anub'arash, Skeinspinner Takazj
 mod:SetEncounterID(2921)
 mod:SetUsedIcons(6, 7, 8)
