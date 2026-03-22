@@ -29,8 +29,8 @@ mod:AddCustomTimerOptions(1237272, true, 1, 0)--Lair Weaving
 mod:AddCustomTimerOptions(1247672, true, 5, 0)--Infusion Pylon
 mod:AddCustomTimerOptions(1227782, true, 2, 0)--Arcane Outrage
 --Midnight private aura replacements
-mod:AddPrivateAuraSoundOption(1226311, true, 1226315, 3, 1)--Infusion Tether
-mod:AddPrivateAuraSoundOption(1243771, true, 1243771, 1, 2)--GTFO
+mod:AddPrivateAuraSoundOption(1226311, true, 1226315, 3, 1, "lineyou", 17)--Infusion Tether
+mod:AddPrivateAuraSoundOption(1243771, true, 1243771, 1, 2, "watchfeet", 8)--GTFO
 
 function mod:OnLimitedCombatStart()
 	self:EnableAlertOptions(1226395, 264, "justrun", 2)
@@ -47,6 +47,4 @@ function mod:OnLimitedCombatStart()
 	self:EnableTimelineOptions(1237272, {269, 602})
 	self:EnableTimelineOptions(1247672, 270)
 	self:EnableTimelineOptions(1227782, 271)
-	self:EnablePrivateAuraSound(1226311, "lineyou", 17)
-	self:EnablePrivateAuraSound(1243771, "watchfeet", 8)
 end

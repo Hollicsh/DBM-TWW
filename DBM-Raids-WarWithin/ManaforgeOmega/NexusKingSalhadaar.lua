@@ -36,14 +36,14 @@ mod:AddCustomTimerOptions(1226648, true, 3, 0)--Galactic Smash
 mod:AddCustomTimerOptions(1226442, true, 3, 0)--Starkiller Swing
 mod:AddCustomTimerOptions(1225634, true, 6, 0)--World in Twilight
 --Pre midnight private auras
-mod:AddPrivateAuraSoundOption(1224855, true, 1224827, 1, 1)--Behead
-mod:AddPrivateAuraSoundOption(1237108, true, 1237106, 1, 1)--Twilight Massacre
-mod:AddPrivateAuraSoundOption(1228114, true, 1228115, 1, 1)--Netherbreaker
-mod:AddPrivateAuraSoundOption(1225316, true, 1226648, 1, 1)--Galactic Smash
-mod:AddPrivateAuraSoundOption(1226018, true, 1226442, 1, 1)--Starkiller Swing
+mod:AddPrivateAuraSoundOption({1224855,1224857,1224858,1224859,1224864,1225060,1224860,1225055,1225056,1225057,1225059,1224828,1225058}, true, 1224827, 1, 1, "lineyou", 17)--Behead
+mod:AddPrivateAuraSoundOption(1237108, true, 1237106, 1, 1, "behindmob", 2)--Twilight Massacre
+mod:AddPrivateAuraSoundOption(1228114, true, 1228115, 1, 1, "lineyou", 17)--Netherbreaker
+mod:AddPrivateAuraSoundOption({1225316,1248128,1226601,1226602}, true, 1226648, 1, 1, "runout", 2)--Galactic Smash
+mod:AddPrivateAuraSoundOption(1226018, true, 1226442, 1, 1, "runout", 2)--Starkiller Swing
 --Post midnight private auras
-mod:AddPrivateAuraSoundOption(1227549, true, 1227529, 1, 1)--Banishment
-mod:AddPrivateAuraSoundOption(1231097, true, 1231097, 1, 2)--GTFO
+mod:AddPrivateAuraSoundOption(1227549, true, 1227529, 1, 1, "scatter", 2)--Banishment
+mod:AddPrivateAuraSoundOption(1231097, true, 1231097, 1, 2, "watchfeet", 8)--GTFO
 
 function mod:OnLimitedCombatStart(delay)
 	self:DisableSpecialWarningSounds()
@@ -67,11 +67,4 @@ function mod:OnLimitedCombatStart(delay)
 	self:EnableTimelineOptions(1226442, 455)
 	self:EnableTimelineOptions(1225634, 456)
 
-	self:EnablePrivateAuraSound({1224855,1224857,1224858,1224859,1224864,1225060,1224860,1225055,1225056,1225057,1225059,1224828,1225058}, "lineyou", 17)--Behead
-	self:EnablePrivateAuraSound(1237108, "behindmob", 2)--Twilight Massacre
-	self:EnablePrivateAuraSound(1228114, "lineyou", 17)--Netherbreaker
-	self:EnablePrivateAuraSound({1225316,1248128,1226601,1226602}, "runout", 2)--Galactic Smash
-	self:EnablePrivateAuraSound(1226018, "runout", 2)--Starkiller Swing
-	self:EnablePrivateAuraSound(1227549, "scatter", 2)--Banishment
-	self:EnablePrivateAuraSound(1231097, "watchfeet", 8)--GTFO
 end

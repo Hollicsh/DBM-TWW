@@ -59,7 +59,7 @@ local timer1500PoundDudCast							= mod:NewCastNPTimer(15, 466165, nil, nil, nil
 local timerTimeReleasedCackler						= mod:NewTargetTimer(10, 1217292, nil, nil, nil, 2)
 local timerFinalBlast								= mod:NewCastCountTimer(6, 1219333, nil, nil, nil, 3)
 
-mod:AddPrivateAuraSoundOption(466155, true, 466155, 1)--Sapper's Satchel (sub mechanic to BBBBombs)
+mod:AddPrivateAuraSoundOption(466155, true, 466155, 1, "bombyou", 12)--Sapper's Satchel (sub mechanic to BBBBombs)
 --Stage Two: Mechanical Maniac
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(30497))
 ----Gallywix
@@ -77,7 +77,7 @@ local timerGigaBlastCD								= mod:NewCDCountTimer(6.5, 469327, nil, nil, nil, 
 local timerFusedCanistersCD							= mod:NewCDCountTimer(97.3, 466341, nil, nil, nil, 3)
 local timerControlMeltdownCD						= mod:NewCastCountTimer(15, 1220846, nil, nil, nil, 2)
 
-mod:AddPrivateAuraSoundOption(466344, true, 466341, 2)--Fused Canister
+mod:AddPrivateAuraSoundOption(466344, true, 466341, 2, "gather", 2)--Fused Canister
 ----Darkfuse Cronies
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(31028))
 --local warnEnrage									= mod:NewTargetNoFilterAnnounce(1216852, 2, nil, "Tank|Healer|RemoveEnrage")
@@ -99,7 +99,7 @@ local specWarnTotalDestructionInterrupt				= mod:NewSpecialWarningInterrupt(1214
 
 local timerTotalDestruction							= mod:NewCastTimer(25, 1214369, nil, nil, nil, 4, nil, DBM_COMMON_L.INTERRUPT_ICON)
 
-mod:AddPrivateAuraSoundOption(1219279, true, 1219279, 2)--Gallybux Pest Eliminator (Mythic only)
+mod:AddPrivateAuraSoundOption(1219279, true, 1219279, 2, "lineyou", 17)--Gallybux Pest Eliminator (Mythic only)
 --Stage Three: What an Arsenal!
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(31445))
 
@@ -113,7 +113,7 @@ local timerOverloadedRocketsCD						= mod:NewCDCountTimer(11.5, 1214755, nil, ni
 local timerTickTockCanistersCD						= mod:NewCDCountTimer(97.3, 466342, nil, nil, nil, 3)
 local timerEgoCheckCD								= mod:NewCDTimer(97.3, 466958, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 
-mod:AddPrivateAuraSoundOption(1226489, true, 1226489, 2)--Overloaded Rockets (sub mechanic to BBBBlast)
+mod:AddPrivateAuraSoundOption({1226489,1214767,1214750,1214763,1214758,1214765,1214761,1214766,1214749,1214762,1214759,1214764,1214760}, true, 1226489, 2, "lineyou", 17)--Overloaded Rockets (sub mechanic to BBBBlast)
 --Mythic
 mod:AddTimerLine(PLAYER_DIFFICULTY6)
 local warnGigaBlastResidue							= mod:NewTargetNoFilterAnnounce(1218504, 2, nil, false)
@@ -452,10 +452,6 @@ function mod:OnCombatStart(delay)
 		timerSuppressionCD:Start(allTimers[savedDifficulty][1][467182][1]-delay, 1)
 		timerVentingHeatCD:Start(allTimers[savedDifficulty][1][466751][1]-delay, 1)
 	end
-	self:EnablePrivateAuraSound(466155, "bombyou", 12)
-	self:EnablePrivateAuraSound(466344, "gather", 2)
-	self:EnablePrivateAuraSound(1219279, "lineyou", 17)
-	self:EnablePrivateAuraSound({1226489,1214767,1214750,1214763,1214758,1214765,1214761,1214766,1214749,1214762,1214759,1214764,1214760}, "lineyou", 17)
 end
 
 function mod:OnCombatEnd()

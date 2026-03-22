@@ -52,8 +52,8 @@ local timerSpewOilCD								= mod:NewCDCountTimer(97.3, 459678, nil, nil, nil, 3
 local timerIncendiaryFireCD							= mod:NewCDCountTimer(35.3, 468207, nil, nil, nil, 3)
 local timerTankBusterCD								= mod:NewCDCountTimer(97.3, 465865, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 
-mod:AddPrivateAuraSoundOption(459669, true, 459678, 1)--Spew Oil
-mod:AddPrivateAuraSoundOption(468486, true, 468207, 2)--Incendiary Fire--For some reason, blizzard gave a spell that has a 6 second pre debuff, an additional 4 second pre pre debuff private aura
+mod:AddPrivateAuraSoundOption(459669, true, 459678, 1, "poolyou", 18)--Spew Oil
+mod:AddPrivateAuraSoundOption(468486, true, 468207, 2, "flameyou", 12)--Incendiary Fire--For some reason, blizzard gave a spell that has a 6 second pre debuff, an additional 4 second pre pre debuff private aura
 ----Geargrinder Biker
 mod:AddTimerLine(DBM:EJ_GetSectionInfo(30118))
 local warnBlazeofGlory								= mod:NewCastAnnounce(466040, 2)
@@ -89,8 +89,6 @@ function mod:OnCombatStart(delay)
 	self.vb.tankBusterCount = 0
 	self.vb.breakdownCount = 0
 	table.wipe(castsPerGUID)
-	self:EnablePrivateAuraSound(459669, "poolyou", 18)
-	self:EnablePrivateAuraSound(468486, "flameyou", 12)
 	timerTankBusterCD:Start(6-delay, 1)
 	timerSpewOilCD:Start(12.0-delay, 1)
 	timerCallbikersCD:Start(20.2-delay, 1)

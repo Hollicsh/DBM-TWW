@@ -106,7 +106,7 @@ local timerSprayandPrayCD							= mod:NewCDCountTimer(70, 466545, nil, nil, nil,
 local timerDoubleWhammyCD							= mod:NewCDCountTimer(70, 469491, nil, nil, nil, 5, nil, DBM_COMMON_L.TANK_ICON)
 local timerElectroShockerCD							= mod:NewCDCountTimer(30, -31766, 1215591, nil, nil, 1)
 
-mod:AddPrivateAuraSoundOption(472354, true, 466539, 1)--Fixate debuff linked to unstable crawler mines
+mod:AddPrivateAuraSoundOption(472354, true, 466539, 1, "bombyou", 12)--Fixate debuff linked to unstable crawler mines
 mod:AddNamePlateOption("NPAuraOnChargedShield", 1222948)
 mod:AddSetIconOption("SetIconOnMines", 466539, false, 5, {1, 2, 3, 4, 5, 6, 7, 8}, true)
 --Intermission: Bulletstorm
@@ -193,7 +193,6 @@ function mod:OnCombatStart(delay)
 	self.vb.bulletCount = 0
 	self.vb.addCount = 0
 	table.wipe(castsPerGUID)
-	self:EnablePrivateAuraSound(472354, "bombyou", 12)
 	if self.Options.NPAuraOnChargedShield then
 		DBM:FireEvent("BossMod_EnableHostileNameplates")
 	end

@@ -112,7 +112,7 @@ local timerScatteredPayoutCD					= mod:NewCDCountTimer(25.2, 465580, nil, nil, n
 local timerExplosiveJackpotCD					= mod:NewCDCountTimer(25.2, 465587, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 local timerExplosiveJackpot						= mod:NewCastTimer(10, 465587, nil, nil, nil, 2, nil, DBM_COMMON_L.DEADLY_ICON)
 
-mod:AddPrivateAuraSoundOption(465325, true, 465322, 1)
+mod:AddPrivateAuraSoundOption(465325, true, 465322, 1, "lineyou", 17)
 
 mod.vb.spinCount = 0
 mod.vb.paylineCount = 0
@@ -141,7 +141,6 @@ function mod:OnCombatStart(delay)
 		timerTheBigHitCD:Start(string.format("v%s-%s", 10.8-delay, 15.6-delay), 1)
 		timerSpintoWinCD:Start(string.format("v%s-%s", 17.3-delay, 20.6-delay), 1)
 	end
-	self:EnablePrivateAuraSound(465325, "lineyou", 17)
 	if self.Options.NPAuraOnGaze or self.Options.NPAuraOnDLC then
 		DBM:FireEvent("BossMod_EnableHostileNameplates")
 	end

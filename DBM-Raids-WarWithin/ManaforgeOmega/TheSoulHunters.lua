@@ -30,11 +30,11 @@ mod:AddCustomTimerOptions(1227355, true, 3, 0)--Void Step
 mod:AddCustomTimerOptions(1245743, true, 3, 0)--Eradicate
 mod:AddCustomTimerOptions(1228381, true, 6, 0)--Phase Change
 --Midnight private aura replacements
-mod:AddPrivateAuraSoundOption(1227847, true, 1227809, 1, 1)--The Hunt
-mod:AddPrivateAuraSoundOption(1222232, true, 1222232, 1, 1)--Devourer's Ire
-mod:AddPrivateAuraSoundOption(1221490, true, 1218103, 1, 1)--Fel Singed. Eyebeam Debuff
-mod:AddPrivateAuraSoundOption(1235045, false, 1235045, 1, 2)--GTFO for void step (LEAVE OFF BY DEFAULT)
-mod:AddPrivateAuraSoundOption(1248464, false, 1241833, 1, 1)--Fracture Debuff
+mod:AddPrivateAuraSoundOption(1227847, true, 1227809, 1, 1, "lineyou", 17)--The Hunt
+mod:AddPrivateAuraSoundOption(1222232, true, 1222232, 1, 1, "debuffyou", 17)--Devourer's Ire
+mod:AddPrivateAuraSoundOption(1221490, true, 1218103, 1, 1, "defensive", 2)--Fel Singed. Eyebeam Debuff
+mod:AddPrivateAuraSoundOption(1235045, false, 1235045, 1, 2, "watchfeet", 8)--GTFO for void step (LEAVE OFF BY DEFAULT)
+mod:AddPrivateAuraSoundOption(1248464, false, 1241833, 1, 1, "defensive", 2)--Fracture Debuff
 
 function mod:OnLimitedCombatStart()
 	self:EnableAlertOptions(1241306, 314, "farfromline", 2)
@@ -55,11 +55,6 @@ function mod:OnLimitedCombatStart()
 	self:EnableTimelineOptions(1245743, 320)
 	self:EnableTimelineOptions(1228381, 321)
 
-	self:EnablePrivateAuraSound(1227847, "lineyou", 17)
-	self:EnablePrivateAuraSound(1222232, "debuffyou", 17)
-	self:EnablePrivateAuraSound(1235045, "watchfeet", 8)
 	if self:IsTank() then
-		self:EnablePrivateAuraSound(1221490, "defensive", 2)
 	end
-	self:EnablePrivateAuraSound(1248464, "defensive", 2)
 end

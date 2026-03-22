@@ -14,13 +14,13 @@ mod:RegisterCombat("combat")
 
 --Midnight private aura replacements
 --TODO, add Null Binding? spam can't be controlled
-mod:AddPrivateAuraSoundOption(1228206, true, 1228206, 1, 1)--Excess Mass
-mod:AddPrivateAuraSoundOption(1243577, true, 1243577, 1, 1)--Reverse Gravity
-mod:AddPrivateAuraSoundOption(1232394, true, 1232394, 1, 1)--P3 gravity Well
-mod:AddPrivateAuraSoundOption(1234243, true, 1234243, 1, 1)--Crushing Gravity
-mod:AddPrivateAuraSoundOption(1234244, true, 1234244, 1, 1)--P2 Inverse gravity
-mod:AddPrivateAuraSoundOption(1249425, true, 1249425, 1, 1)--Mass Destruction
-mod:AddPrivateAuraSoundOption(1237696, true, 1237696, 1, 2)--GTFO
+mod:AddPrivateAuraSoundOption(1228206, true, 1228206, 1, 1, "targetyou", 2)--Excess Mass
+mod:AddPrivateAuraSoundOption(1243577, true, 1243577, 1, 1, "scatter", 2)--Reverse Gravity
+mod:AddPrivateAuraSoundOption(1232394, true, 1232394, 1, 1, "safenow", 2)--P3 gravity Well
+mod:AddPrivateAuraSoundOption(1234243, true, 1234243, 1, 1, "scatter", 2)--Crushing Gravity
+mod:AddPrivateAuraSoundOption(1234244, true, 1234244, 1, 1, "scatter", 2)--P2 Inverse gravity
+mod:AddPrivateAuraSoundOption(1249425, true, 1249425, 1, 1, "lineyou", 17)--Mass Destruction
+mod:AddPrivateAuraSoundOption(1237696, true, 1237696, 1, 2, "watchfeet", 8)--GTFO
 
 mod:RegisterEventsInCombat(
 	"ENCOUNTER_TIMELINE_EVENT_STATE_CHANGED"
@@ -165,13 +165,6 @@ local allTimers = {
 
 function mod:OnLimitedCombatStart(delay)
 	self:SetStage(1)
-	self:EnablePrivateAuraSound(1228206, "targetyou", 2)
-	self:EnablePrivateAuraSound(1243577, "scatter", 2)
-	self:EnablePrivateAuraSound(1232394, "safenow", 2)
-	self:EnablePrivateAuraSound(1234243, "scatter", 2)
-	self:EnablePrivateAuraSound(1234244, "scatter", 2)
-	self:EnablePrivateAuraSound(1249425, "lineyou", 17)
-	self:EnablePrivateAuraSound(1237696, "watchfeet", 8)
 	if DBM.Options.DebugMode then
 		self:IgnoreBlizzardAPI()
 		--eventCount = 0

@@ -28,11 +28,11 @@ mod:AddCustomTimerOptions(1231720, true, 1, 0)--Invoke Collector
 mod:AddCustomTimerOptions(1243874, true, 1, 0)--Void Harvest
 mod:AddCustomTimerOptions(1238873, true, 3, 0)--Echoing Tempest
 --Midnight private aura replacements
-mod:AddPrivateAuraSoundOption(1228188, true, 1228161, 1, 1)--Silencing Tempest
-mod:AddPrivateAuraSoundOption(1233979, true, 1231015, 3, 1)--Astral Harvest
-mod:AddPrivateAuraSoundOption(1243873, true, 1243874, 3, 1)--Void Harvest
-mod:AddPrivateAuraSoundOption(1228215, true, 1228502, 1, 1)--Overwhelming Power
-mod:AddPrivateAuraSoundOption(1238874, true, 1238873, 1, 1)--Echoing Tempest
+mod:AddPrivateAuraSoundOption(1228188, true, 1228161, 1, 1, "runout", 2)--Silencing Tempest
+mod:AddPrivateAuraSoundOption(1233979, true, 1231015, 3, 1, "orbrun", 2)--Astral Harvest
+mod:AddPrivateAuraSoundOption(1243873, true, 1243874, 3, 1, "orbrun", 2)--Void Harvest
+mod:AddPrivateAuraSoundOption(1228215, true, 1228502, 1, 1, "gathershare", 2)--Overwhelming Power
+mod:AddPrivateAuraSoundOption(1238874, true, 1238873, 1, 1, "runout", 2)--Echoing Tempest
 
 local berserkTimer = mod:NewBerserkTimer(600)
 
@@ -53,10 +53,5 @@ function mod:OnLimitedCombatStart()
 	self:EnableTimelineOptions(1231720, {327, 328})
 	self:EnableTimelineOptions(1243874, 329)
 	self:EnableTimelineOptions(1238873, 466)
-	self:EnablePrivateAuraSound(1228188, "runout", 2)
-	self:EnablePrivateAuraSound(1233979, "orbrun", 2)
-	self:EnablePrivateAuraSound(1243873, "orbrun", 2)
-	self:EnablePrivateAuraSound(1228215, "gathershare", 2)
-	self:EnablePrivateAuraSound(1238874, "runout", 2)
 	berserkTimer:Start(600)
 end

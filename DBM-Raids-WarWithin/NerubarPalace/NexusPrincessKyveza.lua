@@ -58,9 +58,10 @@ local timerStarlessNightCD						= mod:NewCDCountTimer(120, 435405, nil, nil, nil
 local timerStarlessNight						= mod:NewBuffActiveTimer(24, 435405, nil, nil, nil, 5)
 
 mod:AddNamePlateOption("NPOnMask", 448364)
-mod:AddPrivateAuraSoundOption(438141, true, 438245, 1)--Twilight Massacre Target
-mod:AddPrivateAuraSoundOption(436671, true, 435486, 1)--Regicide Targets
-mod:AddPrivateAuraSoundOption(436870, true, 436867, 1)--Assassination Targets
+mod:AddPrivateAuraSoundOption(438141, true, 438245, 1, nil, "runout", 2)--Twilight Massacre Target
+mod:AddPrivateAuraSoundOption({436671,436664,436677,436665,436663,436666,435534}, true, 435486, 1, nil, "lineyou", 17)--Regicide Targets
+mod:AddPrivateAuraSoundOption(436870, true, 436867, 1, nil, "runout", 2)--Assassination Targets
+mod:AddPrivateAuraSoundOption({437343,463273,463276}, true, 437343, 1, 1, "runout", 2)--Queen's Bane (heroic+)
 
 mod.vb.assCount = 0
 mod.vb.assIcon = 1
@@ -88,12 +89,6 @@ function mod:OnCombatStart(delay)
 	timerTwilightMassacreCD:Start(34, 1)
 	timerNexusDaggersCD:Start(45.2, 1)
 	timerStarlessNightCD:Start(96, 1)
-	self:EnablePrivateAuraSound(438141, "runout", 2)--Twilight Massacre
-	self:EnablePrivateAuraSound({436671,436664,436677,436665,436663,436666,435534}, "lineyou", 17)--Regicide
-	self:EnablePrivateAuraSound(436870, "runout", 2)--Assassination
-	if self:IsHard() then--Only has spread on heroic and mythic
-		self:EnablePrivateAuraSound({437343,463273,463276}, "runout", 2)--Queen's bane
-	end
 	if self:IsMythic() then
 		timerDeathMasksCD:Start(18.9, 1)
 		if self.Options.NPOnMask then

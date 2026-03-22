@@ -49,9 +49,9 @@ local timerErosiveSprayCD						= mod:NewCDCountTimer(49, 439811, 123121, nil, ni
 local timerEnvelopingWebsCD						= mod:NewCDCountTimer(49, 454989, 157317, nil, nil, 3, nil, DBM_COMMON_L.MYTHIC_ICON, nil, 1)--Shortname "Webs"
 local timerMovementCD							= mod:NewStageContextCountTimer(49, 334371, nil, nil, nil, 6, 178717)
 
-mod:AddPrivateAuraSoundOption(439790, true, 439789, 1)--Rolling Acid target
-mod:AddPrivateAuraSoundOption(455284, true, 455373, 1)--Infested Spawn target
-mod:AddPrivateAuraSoundOption(439783, true, 439784, 1)--Spineret's Strands target
+mod:AddPrivateAuraSoundOption({439790,434406}, true, 439789, 1, "targetyou", 2)--Rolling Acid target
+mod:AddPrivateAuraSoundOption({455284,439815}, true, 455373, 1, "mobout", 2)--Infested Spawn target
+mod:AddPrivateAuraSoundOption({439783,434090}, true, 439784, 1, "runout", 2)--Spineret's Strands target
 
 mod.vb.movementFinished = false
 --Totals used for fight overall
@@ -473,9 +473,6 @@ function mod:OnCombatStart(delay)
 	timerSpinneretsStrandsCD:Start(allTimers[savedDifficulty][1][439784][1]-delay, 1)
 	timerErosiveSprayCD:Start(allTimers[savedDifficulty][1][439811][1]-delay, 1)
 	timerMovementCD:Start(self:IsMythic() and 56.3 or 90, 1)
-	self:EnablePrivateAuraSound({439790,434406}, "targetyou", 2)--Raid version, (434406 is in dungeon)
-	self:EnablePrivateAuraSound({455284,439815}, "mobout", 2)--Maybe better sound later, but this one does say "mob out" as in "mob on you, get out and spread" which is the mechanic
-	self:EnablePrivateAuraSound({439783,434090}, "runout", 2)--Raid version of Spinneret's Strands
 end
 
 function mod:OnTimerRecovery()
