@@ -46,7 +46,6 @@ mod:AddPrivateAuraSoundOption(1227549, true, 1227529, 1, 1, "scatter", 2)--Banis
 mod:AddPrivateAuraSoundOption(1231097, true, 1231097, 1, 2, "watchfeet", 8)--GTFO
 
 function mod:OnLimitedCombatStart(delay)
-	self:DisableSpecialWarningSounds()
 	self:EnableAlertOptions(1227470, 443, "breathsoon", 2)
 	self:EnableAlertOptions(1224906, 444, "findmc", 2)
 	self:EnableAlertOptions(1238975, 446, "ghostsoon", 2)
